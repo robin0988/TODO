@@ -209,7 +209,7 @@ li.no-info::before {
 }
 
 li.no-info::after {
-    content: "There is no information to loading.";
+    content: "There is no information to load. You can start to create!";
     font-size: 14px;
     color: #7c7255; /* Texto gris oscuro */
     margin-left: 10px;

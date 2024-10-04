@@ -4,7 +4,11 @@ import { TodoContext } from "../TodoContext";
 
 function Modal({children}){
 
-    const {newTodo,setNewTodo,saveTodo,closeModal} = react.useContext(TodoContext)
+    const {
+      newTodo
+      ,setNewTodo,
+      saveTodo,
+      closeModal,} = react.useContext(TodoContext)
 
     return reactDom.createPortal(
         
