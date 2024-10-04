@@ -49,7 +49,6 @@ function AppUI(){
           <CreateTodoButton onClick={openModal}/>
           {isModalOpen && (
           <Modal>
-                La funcionalidad de agregar modal
           </Modal>
         )}
         
