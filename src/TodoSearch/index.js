@@ -1,12 +1,18 @@
 import React from "react";
+
 import { TodoContext } from "../TodoContext";
+import {TodoPlaceHolder} from "../TodoPlaceHolder"
+import { useTranslation } from "react-i18next";
 
 function TodoSearch(){
   const {searchValue,
-    setSearchValue} = React.useContext(TodoContext)
+    setSearchValue,
+    t} = React.useContext(TodoContext)
+
+    
     return(
      <input id="new-todo-input" 
-        placeholder="Filter todo task..."
+        placeholder={t('searchHolderMessage')} 
         value={searchValue}
         onChange={(event) =>  {
           setSearchValue(event.target.value)

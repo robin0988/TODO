@@ -1,6 +1,7 @@
 import React, {useState}  from "react";
 import {useLocalStorage} from "./useLocalStorage"
-
+import i18next from 'i18next';
+import { useTranslation } from "react-i18next";
 const TodoContext = React.createContext();
 
 function TodoProvider({children}){
@@ -13,7 +14,7 @@ const [searchValue, setSearchValue] = React.useState('');
 
 const completedTodos = todos.filter(todo => todo.completed).length;
 const totalTodos = todos.length;
-console.log("y esto "+todos.text);
+
 const searchedTodos = todos.filter(
   todos => {
     const todoText=todos.text.toLowerCase();
@@ -69,7 +70,17 @@ const deleteTodo = (text)=>{
     closeModal();
   };
  
+  const [language, setLanguage] = useState('en');
+  const { t, i18n } = useTranslation();
 
+  const switchLanguage = () => {
+    setLanguage((prevLanguage) => {
+      const newLanguage = prevLanguage === 'en' ? 'es' : 'en';
+      i18next.changeLanguage(newLanguage);
+      return newLanguage;
+    });
+  };
+ 
     return(
         <TodoContext.Provider value={{
             loading,
@@ -87,7 +98,10 @@ const deleteTodo = (text)=>{
             newTodo,
             setNewTodo,
             saveTodo,
-            closeModal
+            closeModal,
+            switchLanguage,
+            language,
+            t
         }}>
             {children}
         </TodoContext.Provider>

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { TodoCounter } from '../TodoCounter'; //specify which object is exporting using the {}
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
@@ -22,7 +23,8 @@ function AppUI(){
     deleteTodo,
     isModalOpen,
     setIsModalOpen,
-    openModal
+    openModal,
+    t
     } = React.useContext(TodoContext)
 
     return (
@@ -31,7 +33,7 @@ function AppUI(){
           <TodoSwitch/>
           <div id='container'>
           <img src="Eximware-logo-lo.jpg" alt="TODO List Logo" className="header-image"/> 
-          <h1>TODO</h1>
+          <h1>{t('todoMessage')} </h1>
           <TodoSearch/>
           <TodoList>
               {loading && <><TodoLoading/><TodoLoading/><TodoLoading/></>}
