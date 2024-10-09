@@ -9,6 +9,8 @@ import {TodoError} from '../TodoError';
 import {TodoEmpty} from '../TodoEmpty';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { TodoContext } from '../TodoContext';
+import { TodoSwitch } from '../TodoSwitch';
+
 import {Modal} from '../Modal';
 function AppUI(){
 
@@ -26,14 +28,15 @@ function AppUI(){
     return (
     
         <React.Fragment>
+          <TodoSwitch/>
           <div id='container'>
-          <img src="Eximware-logo-lo.jpg" alt="TODO List Logo" class="header-image"/> 
+          <img src="Eximware-logo-lo.jpg" alt="TODO List Logo" className="header-image"/> 
           <h1>TODO</h1>
           <TodoSearch/>
           <TodoList>
               {loading && <><TodoLoading/><TodoLoading/><TodoLoading/></>}
               {error && <TodoError/>}
-              {(!loading && searchedTodos.length==0) && <TodoEmpty/>}
+              {(!loading && searchedTodos.length===0) && <TodoEmpty/>}
               {searchedTodos.map(todo =>(
                 <TodoItem 
                     key={todo.text} 

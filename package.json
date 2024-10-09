@@ -32,7 +32,7 @@
     ]
   },
     "homepage": "https://robin0988.github.io/TODO",
-  "devDependencies": {
+    "devDependencies": {
     "gh-pages": "^6.1.1"
   }
 }
